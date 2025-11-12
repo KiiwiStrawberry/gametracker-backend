@@ -3,6 +3,7 @@ import cors from "cors";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import reviewRoutes from "./src/routes/reviewRoutes.js";
+import gameRoutes from "./src/routes/gameRoutes.js";
 
 dotenv.config(); 
 
@@ -20,6 +21,7 @@ mongoose.connect(process.env.MONGO_URI, {
   .catch((err) => console.error("❌ Error al conectar a MongoDB:", err));
 
 app.use("/api/reviews", reviewRoutes);
+app.use("/api/games", gameRoutes);
 
 app.get("/", (req, res) => {
   res.send("Servidor GameTracker en funcionamiento 🚀");
