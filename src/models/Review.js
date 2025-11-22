@@ -2,6 +2,10 @@ import mongoose from "mongoose";
 
 const reviewSchema = new mongoose.Schema(
   {
+    gameId: {
+      type: String,
+      required: true
+    },
     gameTitle: {
       type: String,
       required: [true, "El título del juego es obligatorio"],
