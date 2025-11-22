@@ -11,10 +11,10 @@ export const getReviews = async (req, res) => {
 
 export const createReview = async (req, res) => {
   try {
-    const newReview = new Review(req.body);
+    const newReview = Review.find().sort({ createdAt: -1 });
     await newReview.save();
-    res.status(201).json(newReview);
+    res.status(200).json(newReview);
   } catch (error) {
-    res.status(400).json({ message: "Error al crear reseña", error });
+    res.status(500).json({ message: "Error al crear reseña", error });
   }
 };
